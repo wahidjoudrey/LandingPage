@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Da Vinci PDex Plan-Net Provider Directory</title>
+   <link rel="icon" type="image/x-icon" href="https://www.dhcs.ca.gov/Style%20Library/Images/dhcs-icon.ico">
+    <link rel="stylesheet" type="text/css" href="swagger-ui.css" />
+
+
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    h2 {
+      color: #17315a;
+      border-bottom: 2px solid #17315a;
+      padding-bottom: 5px;
+    }
+    .resource {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+   
+    code {
+       
+      padding: 2px 6px;
+      font-family: 'Courier New', monospace;
+      border-radius: 3px;
+    }
+
+    pre {
+      background-color:#17315a;
+      color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* JSON Syntax Highlighting */
+    .json {
+      background-color: #17315a;
+      color: #d4d4d4;
+    
+     
+    }
+
+    .Codehighlighted{
+        background-color: gray;
+        color: white;
+      
+     
+    }
+
+    .Codehighlighted2{
+        background-color: gray;
+        color: white;
+    }
+
+    .json .string { color: #ce9178; }
+    .json .number { color: #b5cea8; }
+    .json .boolean { color: #569cd6; }
+    .json .null { color: #569cd6; }
+    .json .key { color: #9cdcfe; }
+    .json .punctuation { color: #d4d4d4; }
+
+        .swagger-ui .topbar {
+            display: none;
+        }
+
+        section {
+            margin: 30px 0;
+        }
+
+        .custom-nav {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #dee2e6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            width: 80px !important;
+            height: 60px !important;
+            object-fit: contain;
+            margin-right: 20px;
+        }
+
+        .nav-label {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .swagger-container {
+            flex: 1;
+            overflow: auto;
+            padding: 0;
+        }
+
+        #swagger-ui {
+            height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-label {
+                font-size: 18px;
+            }
+        }
+
+        /* Sidebar height and overflow fixes */
+        .sidebar {
+            height: 100vh;
+            overflow-y: auto;
+            padding-bottom: 60px;
+        }
+
+        .nav-menu {
+            padding-bottom: 40px;
+        }
+        /* Sidebar Styles */
+#sidebar-container {
+    background-color: #dae5f7;
+}
+
+.sidebar {
+    width: 280px;
+    background-color: #2d6e8d;
+    color: white;
+    padding: 0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background-color: #17315a;
+    color:#fff;
+    border-bottom: 1px solid #4a5f7a;
+}
+
+.sidebar-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: #ecf0f1;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    border-bottom: 1px solid #34495e;
+}
+
+.nav-link {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-link:hover {
+    background-color: #34495e;
+    color: #3498db;
+    padding-left: 25px;
+}
+
+.nav-link.active {
+    background-color: white;
+    color: #17315a;
+    border-left: 4px solid #2980b9;
+}
+
+.nav-link.active::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+}
+
+/* Collapsible navigation styles */
+.nav-parent {
+    position: relative;
+}
+
+.nav-parent > .nav-link::after {
+    content: "▼";
+    position: absolute;
+    right: 15px;
+    transition: transform 0.3s ease;
+    font-size: 12px;
+    transform: rotate(-90deg); /* Start collapsed (arrow pointing right) */
+}
+
+.nav-parent.expanded > .nav-link::after {
+    transform: rotate(0deg); /* Expanded state (arrow pointing down) */
+}
+
+.nav-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.nav-parent.expanded .nav-submenu {
+    max-height: 400px;
+}
+
+.nav-submenu .nav-link {
+    padding: 12px 20px 12px 40px;
+    font-size: 14px;
+    border-left: 2px solid transparent;
+}
+
+.nav-submenu .nav-link:hover {
+    background-color: #233240;
+    border-left-color: #3498db;
+    padding-left: 42px;
+}
+
+.nav-submenu .nav-link.active {
+    background-color: #2980b9;
+    border-left-color: #3498db;
+}
+
+.nav-submenu .nav-link.active::before {
+    display: none;
+}
+
+.controller-description {
+    font-size: 12px;
+    color: #E47225;
+    display: block;
+    margin-top: 2px;
+}
+/* Layout styles */
+.main-container {
+    display: flex;
+    height: 100vh;
+}
+
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #fff;
+    color: #17315a;
+    padding: 10px 20px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+header img {
+    height: 40px;
+    width: auto;
+    flex-shrink: 0;
+    padding-left: 40px;
+}
+
+header h1 {
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0 0 20px;
+}
+
+.header-button {
+    background-color: #17315a;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+    background-color: #2c3e50;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 250px;
+    }
+} 
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3 class="sidebar-title">API Documentation</h3>
+            </div>
+            <ul class="nav-menu">
+                <li  id="cms-parent">
+                    <a class="nav-link" onclick="location.href='CMSOverview.html'">
+                        CMS Interoperability/Patient Access Rule
+                    </a>
+                </li>
+                <li class="nav-item nav-parent" id="provider-directory-parent" style="margin-top: 15px;">
+                    <a class="nav-link active" onclick="toggleSubmenu('provider-directory-parent')">
+                        Provider Directory
+                        <span class="controller-description">FHIR Resource APIs</span>
+                    </a>
+                    <ul class="nav-submenu">
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="Insurance" onclick="location.href='ProviderOverview.html'">
+                                Overview
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="organization" onclick="location.href='ProviderDirectory.html#organization'">
+                                Organization
+                                <span class="controller-description">Organization management</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="location" onclick="location.href='ProviderDirectory.html#location'">
+                                Location
+                                <span class="controller-description">Location-based services</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="practitioner" onclick="location.href='ProviderDirectory.html#practitioner'">
+                                Practitioner
+                                <span class="controller-description">Healthcare practitioners</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="practitionerrole" onclick="location.href='ProviderDirectory.html#practitionerrole'">
+                                Practitioner Role
+                                <span class="controller-description">Practitioner roles</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="healthcareservice" onclick="location.href='ProviderDirectory.html#healthcareservice'">
+                                Healthcare Service
+                                <span class="controller-description">Healthcare services</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="APIExamples" onclick="location.href='ProviderDirectory.html#APIExamples'">
+                                API Usage Examples
+                                <span class="controller-description">GET API calls</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-parent" id="Formulary-parent" style="margin-top: 15px;">
+                    <a class="nav-link" onclick="toggleSubmenu('Formulary-parent')">
+                        Drug Formulary
+                        <span class="controller-description">FHIR Resource APIs</span>
+                    </a>
+                    <ul class="nav-submenu">
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="Insurance" onclick="location.href='Formulary.html'">
+                                Overview
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="List" onclick="switchController('List')">
+                                List
+                                <span class="controller-description">The List provides a list of all medications</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="MedicationKnowledge" onclick="switchController('practitioner')">
+                                MedicationKnowledge
+                                <span class="controller-description">provides the drug name and corresponding codes, along with details</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-parent" id="PatientAccessRule-parent" style="margin-top: 15px;">
+                    <a class="nav-link" onclick="toggleSubmenu('PatientAccessRule-parent')">
+                        Patient Access
+                        <span class="controller-description">FHIR Resource R4 APIs</span>
+                    </a>
+                    <ul class="nav-submenu">
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="PatientAccess" onclick="location.href='Formulary.html'">
+                                Overview
+
+                            </a>
+                        </li>
+                     
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="Claims" onclick="switchController('practitioner')">
+                                Claims
+                                <span class="controller-description">provides the drug name and corresponding codes, along with details</span>
+                            </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="Conditions" onclick="switchController('practitioner')">
+                                Conditions
+                                <span class="controller-description">provides the drug name and corresponding codes, along with details</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- Main Content Area -->
+        <div class="content-area">
+            <header>
+                <img src="dhcsResize.png" /> <h1>Da Vinci PDex Plan-Net Provider Directory</h1>
+                <p>An Overview of the Provider Directory API using HL7 FHIR Resources</p>
+            </header>
+
+            <div class="main-content">
+                <section>
+                    <h1>Provider Directory</h1>
+                    <p>
+                        Humana offers a Provider Directory service that enables current or prospective members to see which providers and pharmacies are in-network for a given Humana insurance plan. This service includes multiple FHIR APIs: InsurancePlan, PractitionerRole, Practitioner, Organization, and Location.
+                    </p>
+                    <p>
+                        The InsurancePlan resource enables a user to retrieve a list of Humana's Medicare Individual, Medicare Group, and Medicaid plans and their corresponding coverage areas and networks.
+                    </p>
+                    <p>
+                        The PractitionerRole resource contains information about the providers or pharmacies in-network for a given insurance plan. The PractitionerRole responses include references to Practitioner, Organization, and Location where the user can find more contextual information about the in-network providers and where they operate.
+                    </p>
+                    <p>
+                        These APIs follow the HL7 R4 FHIR specification, as well as the <a href="http://hl7.org/fhir/us/davinci-pdex-plan-net/index.html" target="_blank">DaVinci PDEX Plan Net implementation guide</a>.
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Function to toggle submenu visibility
+        function toggleSubmenu(parentId) {
+            const parent = document.getElementById(parentId);
+            if (parent) {
+                parent.classList.toggle('expanded');
+            }
+        }
+    </script>
+</body>
+</html>

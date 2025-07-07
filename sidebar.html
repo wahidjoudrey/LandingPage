@@ -1,0 +1,53 @@
+ <!--Sidebar Navigation 
+<div class="sidebar">
+    <div class="sidebar-header">
+        <h3 class="sidebar-title">API Documentation</h3>
+    </div>
+    <ul class="nav-menu">
+        <li class="nav-item">
+
+            <a class="nav-link active" data-controller="all" onclick="location.href='MainPage.html'">
+                Overview
+                <span class="controller-description">FHIR APIs</span>
+            </a>
+        </li>
+        <li class="nav-item nav-parent" id="provider-directory-parent">
+            <a class="nav-link" onclick="toggleSubmenu('provider-directory-parent')">
+                Provider Directory
+                <span class="controller-description">FHIR Resource APIs</span>
+            </a>
+            <ul class="nav-submenu">
+                <li class="nav-item">
+                    <a class="nav-link" data-controller="location" onclick="location.href='index2.html'">
+                        Location
+                        <span class="controller-description">Location-based services</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-controller="organization" onclick="switchController('organization')">
+                        Organization
+                        <span class="controller-description">Organization management</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-controller="practitioner" onclick="switchController('practitioner')">
+                        Practitioner
+                        <span class="controller-description">Healthcare practitioners</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-controller="practitionerrole" onclick="switchController('practitionerrole')">
+                        Practitioner Role
+                        <span class="controller-description">Practitioner roles</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-controller="healthcareservice" onclick="switchController('healthcareservice')">
+                        Healthcare Service
+                        <span class="controller-description">Healthcare services</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>--> 

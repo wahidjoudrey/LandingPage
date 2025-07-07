@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Da Vinci PDex Plan-Net Provider Directory</title>
+   <link rel="icon" type="image/x-icon" href="https://www.dhcs.ca.gov/Style%20Library/Images/dhcs-icon.ico">
+    <link rel="stylesheet" type="text/css" href="swagger-ui.css" />
+
+
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    h2 {
+      color: #17315a;
+      border-bottom: 2px solid #17315a;
+      padding-bottom: 5px;
+    }
+    .resource {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+   
+    code {
+       
+      padding: 2px 6px;
+      font-family: 'Courier New', monospace;
+      border-radius: 3px;
+    }
+
+    pre {
+      background-color:#17315a;
+      color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* JSON Syntax Highlighting */
+    .json {
+      background-color: #17315a;
+      color: #d4d4d4;
+    
+     
+    }
+
+    .Codehighlighted{
+        background-color: gray;
+        color: white;
+      
+     
+    }
+
+    .Codehighlighted2{
+        background-color: gray;
+        color: white;
+    }
+
+    .json .string { color: #ce9178; }
+    .json .number { color: #b5cea8; }
+    .json .boolean { color: #569cd6; }
+    .json .null { color: #569cd6; }
+    .json .key { color: #9cdcfe; }
+    .json .punctuation { color: #d4d4d4; }
+
+        .swagger-ui .topbar {
+            display: none;
+        }
+
+        section {
+            margin: 30px 0;
+        }
+
+        .custom-nav {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #dee2e6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            width: 80px !important;
+            height: 60px !important;
+            object-fit: contain;
+            margin-right: 20px;
+        }
+
+        .nav-label {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .swagger-container {
+            flex: 1;
+            overflow: auto;
+            padding: 0;
+        }
+
+        #swagger-ui {
+            height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-label {
+                font-size: 18px;
+            }
+        }
+
+        /* Sidebar height and overflow fixes */
+        .sidebar {
+            height: 100vh;
+            overflow-y: auto;
+            padding-bottom: 60px;
+        }
+
+        .nav-menu {
+            padding-bottom: 40px;
+        }
+        /* Sidebar Styles */
+#sidebar-container {
+    background-color: #dae5f7;
+}
+
+.sidebar {
+    width: 280px;
+    background-color: #2d6e8d;
+    color: white;
+    padding: 0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background-color: #17315a;
+    color:#fff;
+    border-bottom: 1px solid #4a5f7a;
+}
+
+.sidebar-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: #ecf0f1;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    border-bottom: 1px solid #34495e;
+}
+
+.nav-link {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-link:hover {
+    background-color: #34495e;
+    color: #3498db;
+    padding-left: 25px;
+}
+
+.nav-link.active {
+    background-color: white;
+    color: #17315a;
+    border-left: 4px solid #2980b9;
+}
+
+.nav-link.active::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+}
+
+/* Collapsible navigation styles */
+.nav-parent {
+    position: relative;
+}
+
+.nav-parent > .nav-link::after {
+    content: "▼";
+    position: absolute;
+    right: 15px;
+    transition: transform 0.3s ease;
+    font-size: 12px;
+    transform: rotate(-90deg); /* Start collapsed (arrow pointing right) */
+}
+
+.nav-parent.expanded > .nav-link::after {
+    transform: rotate(0deg); /* Expanded state (arrow pointing down) */
+}
+
+.nav-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.nav-parent.expanded .nav-submenu {
+    max-height: 400px;
+}
+
+.nav-submenu .nav-link {
+    padding: 12px 20px 12px 40px;
+    font-size: 14px;
+    border-left: 2px solid transparent;
+}
+
+.nav-submenu .nav-link:hover {
+    background-color: #233240;
+    border-left-color: #3498db;
+    padding-left: 42px;
+}
+
+.nav-submenu .nav-link.active {
+    background-color: #2980b9;
+    border-left-color: #3498db;
+}
+
+.nav-submenu .nav-link.active::before {
+    display: none;
+}
+
+.controller-description {
+    font-size: 12px;
+    color: #E47225;
+    display: block;
+    margin-top: 2px;
+}
+/* Layout styles */
+.main-container {
+    display: flex;
+    height: 100vh;
+}
+
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #fff;
+    color: #17315a;
+    padding: 10px 20px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+header img {
+    height: 40px;
+    width: auto;
+    flex-shrink: 0;
+    padding-left: 40px;
+}
+
+header h1 {
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0 0 20px;
+}
+
+.header-button {
+    background-color: #17315a;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+    background-color: #2c3e50;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 250px;
+    }
+} 
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3 class="sidebar-title">API Documentation</h3>
+            </div>
+            <ul class="nav-menu">
+                <li  id="cms-parent">
+                    <a class="nav-link" onclick="location.href='CMSOverview.html'">
+                        CMS Interoperability/Patient Access Rule
+                    </a>
+                </li>
+                <li class="nav-item nav-parent collapsed" id="provider-directory-parent" style="margin-top: 15px;">
+                    <a class="nav-link" onclick="toggleSubmenu('provider-directory-parent')">
+                        Provider Directory
+                        <span class="controller-description">FHIR Resource APIs</span>
+                    </a>
+                    <ul class="nav-submenu">
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="Insurance" onclick="location.href='ProviderOverview.html'">
+                                Overview
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="organization" onclick="location.href='ProviderDirectory.html#organization'">
+                                Organization
+                                <span class="controller-description">Organization management</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="location" onclick="location.href='ProviderDirectory.html#location'">
+                                Location
+                                <span class="controller-description">Location-based services</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="practitioner" onclick="location.href='ProviderDirectory.html#practitioner'">
+                                Practitioner
+                                <span class="controller-description">Healthcare practitioners</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="practitionerrole" onclick="location.href='ProviderDirectory.html#practitionerrole'">
+                                Practitioner Role
+                                <span class="controller-description">Practitioner roles</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="healthcareservice" onclick="location.href='ProviderDirectory.html#healthcareservice'">
+                                Healthcare Service
+                                <span class="controller-description">Healthcare services</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="APIExamples" onclick="location.href='ProviderDirectory.html#APIExamples'">
+                                API Usage Examples
+                                <span class="controller-description">GET API calls</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-parent collapsed" id="Formulary-parent" style="margin-top: 15px;">
+                    <a class="nav-link" onclick="toggleSubmenu('Formulary-parent')">
+                        Drug Formulary
+                        <span class="controller-description">FHIR Resource APIs</span>
+                    </a>
+                    <ul class="nav-submenu">
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="Insurance" onclick="location.href='Formulary.html'">
+                                Overview
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="List" onclick="switchController('List')">
+                                List
+                                <span class="controller-description">The List provides a list of all medications</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="MedicationKnowledge" onclick="switchController('practitioner')">
+                                MedicationKnowledge
+                                <span class="controller-description">provides the drug name and corresponding codes, along with details</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-parent collapsed" id="PatientAccessRule-parent" style="margin-top: 15px;">
+                    <a class="nav-link" onclick="toggleSubmenu('PatientAccessRule-parent')">
+                        Patient Access
+                        <span class="controller-description">FHIR Resource R4 APIs</span>
+                    </a>
+                    <ul class="nav-submenu">
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="PatientAccess" onclick="location.href='Formulary.html'">
+                                Overview
+
+                            </a>
+                        </li>
+                     
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="Claims" onclick="switchController('practitioner')">
+                                Claims
+                                <span class="controller-description">provides the drug name and corresponding codes, along with details</span>
+                            </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                            <a class="nav-link" data-controller="Conditions" onclick="switchController('practitioner')">
+                                Conditions
+                                <span class="controller-description">provides the drug name and corresponding codes, along with details</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="content-area">
+            <header>
+                <img src="dhcsResize.png" /> <h1>Da Vinci PDex Plan-Net Provider Directory</h1>
+                <p>An Overview of the Provider Directory API using HL7 FHIR Resources</p>
+            </header>
+
+            <div class="main-content">
+                <section>
+                    <h2>What is PDex Plan-Net?</h2>
+                    <p>
+                        The <strong>Da Vinci PDex Plan-Net Implementation Guide</strong> defines a FHIR-based standard for
+                        provider directory data exchange between payers, third parties, and consumers. It helps meet the
+                        CMS Interoperability and Patient Access Rule by enabling a standardized, queryable provider directory.
+                    </p>
+                    <p>
+                        It supports the publication of provider network data including practitioners, their roles,
+                        locations, services, and the organizations they represent.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Core FHIR Resources in Plan-Net</h2>
+
+                    <div class="resource" id="organization">
+                        <h3>Organization</h3>
+                        <p>
+                            Represents a healthcare organization (payer, hospital, group practice).
+                            It may be a top-level network or a sub-organization within a larger network.
+                        </p>
+                        <p><strong>Key Fields:</strong> <code class="Codehighlighted">resourceType</code>,<code class="Codehighlighted">meta</code>, <code class="Codehighlighted">id</code>, <code class="Codehighlighted">language</code>, <code class="Codehighlighted">active</code>, <code class="Codehighlighted">name</code>, <code class="Codehighlighted">type</code>, <code class="Codehighlighted">telecom</code>, <code class="Codehighlighted">address</code>, <code class="Codehighlighted">contact</code></p>
+                        <h3>Sandbox API Response</h3>
+                        <p>Here's an example of what a typical API response looks like:</p>
+                        <pre class="json"><code class="json">{
+        "resourceType": "Bundle",
+        "type": "searchset",
+        "timestamp": "2025-01-13T15:14:35.406+00:00",
+        "meta": {
+            "lastUpdated": "2025-01-13T15:14:35.406+00:00",
+            "versionId": "895d4fb7-e8ab-42f0-8583-7e2b3328704d"
+        },
+        "entry": [
+            {
+                "fullUrl": "Organization/67c29814ee1eb20b1be2c2c692cfdd2cfb84e919a867998eccd1762b7b785780",
+                "search": {
+                    "mode": "match"
+                },
+                "resource": {
+                    "resourceType": "Organization",
+                    "id": "67c29814ee1eb20b1be2c2c692cfdd2cfb84e919a867998eccd1762b7b785780",
+                    "language": "en-US",
+                    "active": true,
+                    "type": [
+                        {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/us/davinci-pdex-plan-net/CodeSystem/OrgTypeCS",
+                                    "code": "payer",
+                                    "display": "Payer"
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "MediCal",
+                    "telecom": [
+                        {
+                            "system": "phone",
+                            "value": "(502) 580-1000"
+                        }
+                    ],
+                    "address": [
+                        {
+                            "use": "work",
+                            "type": "physical",
+                            "line": [
+                                "500 W. Main St."
+                            ],
+                            "city": "Louisville",
+                            "district": "Kent",
+                            "state": "KY",
+                            "postalCode": "40202",
+                            "country": "USA"
+                        }
+                    ],
+                    "contact": [
+                        {
+                            "telecom": [
+                                {
+                                    "system": "phone",
+                                    "value": "(502) 580-1000"
+                                },
+                                {
+                                    "system": "fax",
+                                    "value": "(800) 633-8188"
+                                }
+                            ]
+                        }
+                    ],
+                    "meta": {
+                        "versionId": "f33492cb-de51-4797-a9e8-04091ac39cd7",
+                        "lastUpdated": "2024-12-15T01:56:30.001+00:00"
+                    }
+                }
+            },
+            {
+                "fullUrl": "Organization/d6f0c71ef0c88e45e4b3a2118fcb83b0def392d759c901e9d755d0e879028727",
+                "search": {
+                    "mode": "match"
+                },
+                "resource": {
+                    "resourceType": "Organization",
+                    "id": "d6f0c71ef0c88e45e4b3a2118fcb83b0def392d759c901e9d755d0e879028727",
+                    "meta": {
+                        "versionId": "bcb9aeeb-f2b2-4263-8a94-3fe444b4091f",
+                        "lastUpdated": "2024-12-18T01:58:09.936+00:00"
+                    },
+                    "active": true,
+                    "type": [
+                        {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/us/davinci-pdex-plan-net/CodeSystem/OrgTypeCS",
+                                    "code": "fac",
+                                    "display": "Facility"
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "Lahey Clinic Inc",
+                    "address": [
+                        {
+                            "text": "Lahey Clinic Inc"
+                        }
+                    ]
+                }
+            }
+        ],
+        "total": 473817,
+        "link": [
+            {
+                "relation": "self",
+                "url": "/Organization?_total=estimate&_count=20&_skip=0"
+            },
+            {
+                "relation": "next",
+                "url": "/Organization?_total=estimate&_count=20&_skip=20"
+            },
+            {
+                "relation": "last",
+                "url": "/Organization?_total=estimate&_count=20&_skip=473800"
+            }
+        ],
+        "id": "6aefb06e-84cd-4c2d-afea-c77fd71f621b"
+    }</code></pre>
+
+                        <br /><br />
+
+                        <p><strong>Profile URL:</strong> <a href="http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition-plannet-Organization.html" target="_blank">Plan-Net Organization</a></p>
+                    </div>
+
+                    <div class="resource" id="location">
+                        <h3>Location</h3>
+                        <p>
+                            Represents a physical site where services are delivered, such as clinics, hospitals, or offices.
+                        </p>
+                        <p><strong>Key Fields:</strong> <code class="Codehighlighted">resourceType</code>, <code class="Codehighlighted">id</code>, <code class="Codehighlighted">meta</code>, <code class="Codehighlighted">identifier</code>, <code class="Codehighlighted">status</code>, <code class="Codehighlighted">telecom</code>, <code class="Codehighlighted">address</code>, <code class="Codehighlighted">position</code>, <code class="Codehighlighted">managingOrganization</code>, <code class="Codehighlighted">hoursOfOperation</code></p>
+                        <h3>Sandbox API Response</h3>
+                        <p>Here's an example of what a typical API response looks like:</p>
+                        <pre class="json"><code class="json">
+  {
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "timestamp": "2025-01-13T15:12:19.141+00:00",
+    "meta": {
+       
+        "lastUpdated": "2025-01-13T15:12:19.141+00:00",
+        "versionId": "9178b073-47c0-4943-b9fd-2854a793123f"
+    },
+    "entry": [
+     
+        {
+            "fullUrl": "Location/443e371500c42aa628f8fc3ab972ecb531dffa2f36900502ccb9f6641dea1326",
+            "search": {
+                "mode": "instance"
+            },
+            "resource": {
+                "resourceType": "Location",
+                "id": "443e371500c42aa628f8fc3ab972ecb531dffa2f36900502ccb9f6641dea1326",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Location"
+                    ],
+                    "versionId": "83949f71-0acc-4bdf-b8d7-f4ad2c2d520b",
+                    "lastUpdated": "2024-12-18T01:58:33.099+00:00"
+                },
+                "identifier": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "TAX",
+                                    "display": "Tax ID number"
+                                }
+                            ]
+                        },
+                        "system": "http://hl7.org/fhir/sid/us-npi",
+                        "value": "431749107"
+                    }
+                ],
+                "status": "active",
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "3142695812",
+                        "use": "work"
+                    }
+                ],
+                "address": {
+                    "line": [
+                        "LOCATION_ADDRESS_LINE_1",
+                        "LOCATION_ADDRESS_LINE_2"
+                    ],
+                    "city": "Saint Louis",
+                    "district": "Saint Louis City",
+                    "state": "MO",
+                    "postalCode": "63118"
+                },
+                "position": {
+                    "longitude": -90.226518,
+                    "latitude": 38.590351
+                },
+                "managingOrganization": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                            "valueCode": "unknown"
+                        }
+                    ]
+                },
+                "hoursOfOperation": [
+                    {
+                        "extension": [
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                                "valueCode": "unknown"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "total": 774285,
+    "link": [
+        {
+            "relation": "self",
+            "url": "https://localhost:37621/api/Location?_total=estimate&_count=20&_skip=0"
+        },
+        {
+            "relation": "next",
+            "url": "https://localhost:37621/api/Location?_total=estimate&_count=20&_skip=20"
+        },
+        {
+            "relation": "last",
+            "url": "https://localhost:37621/api/Location?_total=estimate&_count=20&_skip=774280"
+        }
+    ],
+    "id": "1662d7a0-1451-4d5d-b6ce-488e6e33db79"
+}</code></pre>
+
+                        <br /><br />
+
+                        <p><strong>Profile URL:</strong> <a href="http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition-plannet-Location.html" target="_blank">Plan-Net Location</a></p>
+                    </div>
+
+                    <div class="resource" id="practitioner">
+                        <h3>Practitioner</h3>
+                        <p>
+                            Represents an individual healthcare provider such as a physician, dentist, or therapist.
+                        </p>
+                        <p><strong>Key Fields:</strong> <code class="Codehighlighted">resourceType</code>, <code class="Codehighlighted">id</code>, <code class="Codehighlighted">meta</code>, <code class="Codehighlighted">identifier</code>, <code class="Codehighlighted">active</code>, <code class="Codehighlighted">name</code>, <code class="Codehighlighted">address</code>, <code class="Codehighlighted">telecom</code>, <code class="Codehighlighted">qualification</code>, <code class="Codehighlighted">communication</code></p>
+                        <h3>Sandbox API Response</h3>
+                        <p>Here's an example of what a typical API response looks like:</p>
+                        <pre class="json"><code class="json">
+                            {
+                                "resourceType": "Bundle",
+                                "type": "searchset",
+                                "timestamp": "2025-01-13T15:12:56.888+00:00",
+                                "meta": {
+                                    "lastUpdated": "2025-01-13T15:12:56.888+00:00",
+                                    "versionId": "bf23ddb4-69a7-4d65-8cc3-76528c7a715f"
+                                },
+                                "entry": [
+                                    {
+                                        "fullUrl": "Practitioner/68f10bf021d7734e071e07bbf561aa0f1bfc7974f266f71311b9177b177d39d1",
+                                        "search": {
+                                            "mode": "match"
+                                        },
+                                        "resource": 
+                                        {
+                                            "resourceType": "Practitioner",
+                                            "id": "68f10bf021d7734e071e07bbf561aa0f1bfc7974f266f71311b9177b177d39d1",
+                                            "meta": {
+                                                "versionId": "a562436f-04ab-4f0d-b551-2fe09c9a12e9",
+                                                "lastUpdated": "2024-12-18T01:58:09.955+00:00"
+                                            },
+                                            "identifier": [
+                                                {
+                                                    "system": "http://hl7.org/fhir/sid/us-npi",
+                                                    "value": "1225096910"
+                                                }
+                                            ],
+                                            "active": true,
+                                            "name": [
+                                                {
+                                                    "text": "Bartels, Amy M DC",
+                                                    "family": "Bartels",
+                                                    "given": [
+                                                        "Amy",
+                                                        "Bartels"
+                                                    ]
+                                                }
+                                            ],
+                                           "address": [
+                                                {
+                                            "extension": [
+                                                {
+                                                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                                                "valueCode": "unknown"
+                                                }
+                                                        ]
+                                                }
+                                            ],
+                                            "telecom": [
+                                                {
+                                                    "system": "phone",
+                                                    "value": "3142913666",
+                                                    "use": "work"
+                                                }
+                                            ],
+                                            "qualification": [
+                                                {
+                                                  "code": {
+                                                    "coding": [
+                                                      {
+                                                        "system": "http://nucc.org/provider-taxonomy",
+                                                        "code": "207Q00000X",
+                                                        "display": "Practitioner"
+                                                      }
+                                                    ],
+                                                    "text": "Practitioner"
+                                                  }
+                                                }
+                                              ],
+                                         
+                                            "communication": [
+                                                {
+                                                    "coding": [
+                                                        {
+                                                            "display": "English"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "total": 1226198,
+                                "link": [
+                                    {
+                                        "relation": "self",
+                                        "url": "Practitioner?_total=estimate&_count=20&_skip=0"
+                                    },
+                                    {
+                                        "relation": "next",
+                                        "url": "Practitioner?_total=estimate&_count=20&_skip=20"
+                                    },
+                                    {
+                                        "relation": "last",
+                                        "url": "Practitioner?_total=estimate&_count=20&_skip=1226180"
+                                    }
+                                ],
+                                "id": "fccb511b-097f-46e6-adf5-d178a4daef51"
+                            }
+                        </code></pre>
+                        <br /><br />
+
+                        <p><strong>Profile URL:</strong> <a href="http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition-plannet-Practitioner.html" target="_blank">Plan-Net Practitioner</a></p>
+                    </div>
+
+                    <div class="resource" id="practitionerrole">
+                        <h3>PractitionerRole</h3>
+                        <p>
+                            Connects a <strong>Practitioner</strong> to an <strong>Organization</strong> and specifies their
+                            <strong>role, specialty, and locations</strong> where they practice.
+                        </p>
+                        <p><strong>Key Fields:</strong> <code class="Codehighlighted">resourceType</code>, <code class="Codehighlighted">id</code>, <code class="Codehighlighted">meta</code>, <code class="Codehighlighted">extension</code>, <code class="Codehighlighted">active</code>, <code class="Codehighlighted">practitioner</code>, <code class="Codehighlighted">organization</code>, <code class="Codehighlighted">specialty</code>, <code class="Codehighlighted">location</code>, <code class="Codehighlighted">telecom</code></p>
+                        <h3>Sandbox API Response</h3>
+                        <p>Here's an example of what a typical API response looks like:</p>
+                        <pre class="json"><code class="json">
+                            {
+                                "resourceType": "Bundle",
+                                "type": "searchset",
+                                "timestamp": "2025-01-13T15:13:59.776+00:00",
+                                "meta": {
+                                    "lastUpdated": "2025-01-13T15:13:59.776+00:00",
+                                    "versionId": "712008cd-d99f-4b8f-9e6d-78e0d53e0e63"
+                                },
+                                "entry": [
+                                    {
+                                        "fullUrl": "https://localhost:32769/api/PractitionerRole/a53c62e917948377566f0a063bb37925d59ec89c6fbf4fbd98141154a077490b",
+                                        "search": {
+                                            "mode": "match"
+                                        },
+                                        "resource": {
+                                            "resourceType": "PractitionerRole",
+                                            "id": "a53c62e917948377566f0a063bb37925d59ec89c6fbf4fbd98141154a077490b",
+                                            "meta": {
+                                                "versionId": "589c479b-35bf-4ad5-bf97-829cf37cd380",
+                                                "lastUpdated": "2024-12-18T01:58:10.236+00:00"
+                                            },
+                                            "extension": [
+                                                {
+                                                    "url": "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/network-reference",
+                                                    "valueReference": {
+                                                        "reference": "https://localhost:32769/api/Organization/02ef4ccf00fe82ec7e7280416e433a1b8586144b2db04e3df546c7bcd8c11729",
+                                                        "display": "Humana/ChoiceCare Network PPO"
+                                                    }
+                                                }
+                                            ],
+                                            "active": true,
+                                            "practitioner": {
+                                                "reference": "https://localhost:32769/api/Practitioner/1b3c33580f2e2094cbde0bfd58f8008ee6e29c06643ca310222045c82fe0ab0e"
+                                            },
+                                            "organization": {
+                                                "reference": "https://localhost:32769/api/Organization/13505efb2248fe994e8d63ab49681d12c963519dcb8d2e166be9cf369ddfa16f",
+                                                "display": "OBHG Georgia PC"
+                                            },
+                                            "specialty": [
+                                                {
+                                                    "coding": [
+                                                        {
+                                                            "system": "http://nucc.org/provider-taxonomy",
+                                                            "code": "207V00000X",
+                                                            "display": "Obstetrics & Gynecology Physician (Specialist)"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "location": [
+                                                {
+                                                    "reference": "https://localhost:32769/api/Location/603e887cd860fb2c3ae78a8187084e946d4c704928626c9b7535b5e5515631d8",
+                                                    "display": "OBHG Georgia PC, Calhoun"
+                                                }
+                                            ],
+                                            "telecom": [
+                                                {
+                                                    "system": "phone",
+                                                    "value": "8009672289",
+                                                    "use": "work"
+                                                },
+                                                {
+                                                    "system": "fax",
+                                                    "value": "8777040499",
+                                                    "use": "work"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "total": 23294702,
+                                "link": [
+                                    {
+                                        "relation": "self",
+                                        "url": "https://localhost:32769/api/PractitionerRole?_total=estimate&_count=20&_skip=0"
+                                    },
+                                    {
+                                        "relation": "next",
+                                        "url": "https://localhost:32769/api/PractitionerRole?_total=estimate&_count=20&_skip=20"
+                                    },
+                                    {
+                                        "relation": "last",
+                                        "url": "https://localhost:32769/api/PractitionerRole?_total=estimate&_count=20&_skip=23294700"
+                                    }
+                                ],
+                                "id": "1b420e6a-8fa0-41f3-9e25-ed02f79350bc"
+                            }
+                        </code></pre>
+                        <br /><br />
+                        <p><strong>Profile URL:</strong> <a href="http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition-plannet-PractitionerRole.html" target="_blank">Plan-Net PractitionerRole</a></p>
+                    </div>
+
+                    <div class="resource" id="healthcareservice">
+                        <h3>HealthcareService</h3>
+                        <p>
+                            Describes the services provided by an organization or practitioner at a particular location (e.g.,
+                            Behavioral Health, Pediatrics, Urgent Care).
+                        </p>
+                        <p><strong>Key Fields:</strong> <code class="Codehighlighted">resourceType</code>, <code class="Codehighlighted">id</code>, <code class="Codehighlighted">meta</code>, <code class="Codehighlighted">active</code>, <code class="Codehighlighted">name</code>, <code class="Codehighlighted">type</code>, <code class="Codehighlighted">location</code>, <code class="Codehighlighted">availableTime</code>, <code class="Codehighlighted">telecom</code>, <code class="Codehighlighted">providedBy</code></p>
+                        <h3>Sandbox API Response</h3>
+                        <p>Here's an example of what a typical API response looks like:</p>
+                        <pre class="json"><code class="json">
+         {
+             "resourceType": "Bundle",
+             "type": "searchset",
+             "timestamp": "2025-01-13T15:13:59.776+00:00",
+             "meta": {
+                 "lastUpdated": "2025-01-13T15:13:59.776+00:00",
+                 "versionId": "712008cd-d99f-4b8f-9e6d-78e0d53e0e63"
+             },
+             "entry": [
+                 {
+                     "fullUrl": "https://localhost:32769/api/PractitionerRole/a53c62e917948377566f0a063bb37925d59ec89c6fbf4fbd98141154a077490b",
+                     "search": {
+                         "mode": "match"
+                     },
+                     "resource": {
+                         "resourceType": "PractitionerRole",
+                         "id": "a53c62e917948377566f0a063bb37925d59ec89c6fbf4fbd98141154a077490b",
+                         "meta": {
+                             "versionId": "589c479b-35bf-4ad5-bf97-829cf37cd380",
+                             "lastUpdated": "2024-12-18T01:58:10.236+00:00"
+                         },
+                         "extension": [
+                             {
+                                 "url": "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/network-reference",
+                                 "valueReference": {
+                                     "reference": "https://localhost:32769/api/Organization/02ef4ccf00fe82ec7e7280416e433a1b8586144b2db04e3df546c7bcd8c11729",
+                                     "display": "Humana/ChoiceCare Network PPO"
+                                 }
+                             }
+                         ],
+                         "active": true,
+                         "practitioner": {
+                             "reference": "https://localhost:32769/api/Practitioner/1b3c33580f2e2094cbde0bfd58f8008ee6e29c06643ca310222045c82fe0ab0e"
+                         },
+                         "organization": {
+                             "reference": "https://localhost:32769/api/Organization/13505efb2248fe994e8d63ab49681d12c963519dcb8d2e166be9cf369ddfa16f",
+                             "display": "OBHG Georgia PC"
+                         },
+                         "specialty": [
+                             {
+                                 "coding": [
+                                     {
+                                         "system": "http://nucc.org/provider-taxonomy",
+                                         "code": "207V00000X",
+                                         "display": "Obstetrics & Gynecology Physician (Specialist)"
+                                     }
+                                 ]
+                             }
+                         ],
+                         "location": [
+                             {
+                                 "reference": "https://localhost:32769/api/Location/603e887cd860fb2c3ae78a8187084e946d4c704928626c9b7535b5e5515631d8",
+                                 "display": "OBHG Georgia PC, Calhoun"
+                             }
+                         ],
+                         "telecom": [
+                             {
+                                 "system": "phone",
+                                 "value": "8009672289",
+                                 "use": "work"
+                             },
+                             {
+                                 "system": "fax",
+                                 "value": "8777040499",
+                                 "use": "work"
+                             }
+                         ]
+                     }
+                 }
+             ],
+             "total": 23294702,
+             "link": [
+                 {
+                     "relation": "self",
+                     "url": "https://localhost:32769/api/PractitionerRole?_total=estimate&_count=20&_skip=0"
+                 },
+                 {
+                     "relation": "next",
+                     "url": "https://localhost:32769/api/PractitionerRole?_total=estimate&_count=20&_skip=20"
+                 },
+                 {
+                     "relation": "last",
+                     "url": "https://localhost:32769/api/PractitionerRole?_total=estimate&_count=20&_skip=23294700"
+                 }
+             ],
+             "id": "1b420e6a-8fa0-41f3-9e25-ed02f79350bc"
+         }
+     </code></pre>
+                        <br /><br />
+
+                        <p><strong>Profile URL:</strong> <a href="http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition-plannet-HealthcareService.html" target="_blank">Plan-Net HealthcareService</a></p>
+                    </div>
+                </section>
+
+                <section id="APIExamples">
+                    <h2>API Usage Examples</h2>
+                    <p>All resources are accessible via standard FHIR RESTful APIs. Examples:</p>
+                    <ul>
+                        <li><code class="Codehighlighted2">GET /Location?_id=123</code> – Retrieve a specific location</li>
+                        <li><code class="Codehighlighted2">GET /Practitioner?name=Smith</code> – Search for practitioners by name</li>
+                        <li><code class="Codehighlighted2">GET /PractitionerRole?specialty=cardiology</code> – Find roles by specialty</li>
+                        <li><code class="Codehighlighted2">GET /Organization?identifier=123456</code> – Lookup organization by ID</li>
+                        <li><code class="Codehighlighted2">GET /HealthcareService?type=urgent-care</code> – Find specific service types</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Learn More</h2>
+                    <p>For complete specification and profiles, visit the <a href="http://hl7.org/fhir/us/davinci-pdex-plan-net/" target="_blank">Da Vinci Plan-Net IG Home</a>.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle submenu visibility
+        function toggleSubmenu(parentId) {
+            const parent = document.getElementById(parentId);
+            if (parent) {
+                parent.classList.toggle('expanded');
+            }
+        }
+    </script>
+</body>
+</html>
